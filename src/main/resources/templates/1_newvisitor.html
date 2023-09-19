@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--Jeff Verheyen r0955982-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new Visitor</title>
+    <link rel="stylesheet" type="text/css" href="img/style.css"/>
+</head>
+<body>
+<main>
+  <h1>New Visitor</h1>
+  <h2>Enter Details</h2>
+  <!--Form-->
+  <form action="/2_visitordetails">
+    <p>
+      <label for="firstname">First Name:</label>
+      <input type="text" name="firstname" id="firstname">
+    </p>
+    <p>
+      <label for="surname">Surname:</label>
+      <input type="text" name="surname" id="surname">
+    </p>
+    <p>
+      <label for="birthyear">Year of birth:</label>
+      <input type="text" name="birthyear" id="birthyear">
+    </p>
+    <p th:each="zoo : ${zooList}">
+      <label th:for="${zooStat.index}" th:text="${zoo.getName()}"></label>
+      <input type="radio" th:name="zooIndex" th:id="${zooStat.index}"
+             th:value="${zooStat.index}" th:checked="${zooStat.index} == 0">
+    </p>
+    <p>
+      <select name="guideIndex">
+        <option value="-1">Who will guide this visitor?</option>
+        <option th:each="staff : ${staffList}" th:text="${staff.getFirstName() +' '+staff.getSurName()}" th:value="${staffStat.index}" />
+      </select>
+    </p>
+    <p>
+      <input type="submit" name="submit" value="Continue and generate personal code">
+    </p>
+  </form>
+  <a href="/">Back to homepage</a>
+</main>
+</body>
+</html>

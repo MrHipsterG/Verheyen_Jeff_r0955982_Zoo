@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--Jeff Verheyen r0955982-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add a new Animal World</title>
+  <link rel="stylesheet" type="text/css" href="img/style.css"/>
+</head>
+<body>
+<main>
+  <h1>New Animal World</h1>
+  <h2>Add a new Animal World:</h2>
+  <!--Form-->
+  <form action="/10_zoodetails">
+    <p>
+      <label for="awname">Name animal world:</label>
+      <input type="text" name="awname" id="awname">
+    </p>
+    <p>
+      <label for="awamount">Number of animals:</label>
+      <input type="text" name="awamount" id="awamount">
+    </p>
+    <p>
+      <label for="awphoto">Photo:</label>
+      <input type="text" name="awphoto" id="awphoto">
+    </p>
+    <p>
+      <select name="zooindex">
+        <option value="-1">In which zoo?</option>
+        <option th:each="zoo : ${zooList}" th:text="${zoo.getName()}" th:value="${zooStat.index}" />
+      </select>
+    </p>
+    <p>
+      <select name="staffindex">
+        <option value="-1">Who is responsible for this animal world?</option>
+        <option th:each="staff : ${staffList}" th:text="${staff.getFirstName() + ' ' + staff.getSurName()}" th:value="${staffStat.index}" />
+      </select>
+    </p>
+    <p>
+      <input type="submit" name="submit" value="Confirm animal world">
+    </p>
+  </form>
+  <p><a href="/">Back to homepage</a></p>
+</main>
+</body>
+</html>

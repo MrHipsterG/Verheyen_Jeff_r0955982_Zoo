@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--Jeff Verheyen r0955982-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoo List</title>
+  <link rel="stylesheet" type="text/css" href="img/style.css"/>
+</head>
+<body>
+<main>
+  <h1>Zoo</h1>
+  <h2>(and number of animal worlds)</h2>
+  <ul>
+    <li th:each="zoo : ${zooList}">
+      <a th:href="@{/10_zoodetails(zooindex=${zooStat.index})}"
+         th:text="${zoo.getName()}+' ('+${zoo.getNumberOfAnimalWorlds()}+')'"></a>
+    </li>
+  </ul>
+  <p><a href="/">Back to homepage</a></p>
+</main>
+</body>
+</html>

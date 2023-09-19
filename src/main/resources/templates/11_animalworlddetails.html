@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--Jeff Verheyen r0955982-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Animal World</title>
+  <link rel="stylesheet" type="text/css" href="img/style.css"/>
+</head>
+<body>
+<main>
+  <h1>We found this animal world</h1>
+  <h2 th:text="${aw.getName()}"></h2>
+  <p th:text="'Responsible: ' +${aw.getResponsible().getFirstName() + ' ' + aw.getResponsible().getSurName()}"></p>
+  <p><img data-th-onerror="this.src='img/noimage.jpg'" th:src="@{${aw.getPhoto()}}" th:alt="${aw.getName()}"></p>
+  <p><a href="/">Back to homepage</a></p>
+</main>
+</body>
+</html>

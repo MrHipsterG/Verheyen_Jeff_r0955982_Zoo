@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--Jeff Verheyen r0955982-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Our staff</title>
+    <link rel="stylesheet" type="text/css" href="img/style.css"/>
+</head>
+<body>
+<main>
+    <h1>Staff List</h1>
+  <h2>Our staff:</h2>
+  <ul>
+    <li th:each="staff : ${staffList}">
+        <span th:text="${staff.toString()}"></span>
+    </li>
+  </ul>
+    <p><a href="/">Back to homepage</a></p>
+</main>
+</body>
+</html>
